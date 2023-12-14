@@ -2,7 +2,7 @@
 categories = ['Development', 'VIM']
 date = '2023-15-12'
 description = "Java'da bir sınıfı oluştururken, genellikle bir yapıcı(constructor) kullanılır. Ancak, bazı durumlarda static factory metodların kullanımı önemli avantajlar sağlayabilir.."
-slug = 'spf13-vim-3-0-release-and-new-website'
+slug = 'static-factory-method-avantajları'
 tags = ['Java', 'constructor', 'static factory methods']
 title = "Java'da Static Factory Metodları ve Constructor'lar Arasındaki Fark"
 +++
