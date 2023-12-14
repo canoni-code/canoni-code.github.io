@@ -1,4 +1,5 @@
-
++++ author = "Serkan HELVACIOĞLU" title = "Java'da Static Factory Metodları ve Constructor'lar Arasındaki Fark" date = "15-12-2023" description = "Java’da bir sınıfı oluştururken, genellikle bir yapıcı(constructor) kullanılır. Ancak, bazı durumlarda static factory metodların kullanımı önemli avantajlar sağlayabilir." tags = [ "Java", "effective", "efektif", "static","factory","constructor","yapıcı","statik", ] 
+categories = [ "Dersler", "Java", ]+++
 # Java'da Static Factory Metodları ve Constructor'lar Arasındaki Fark
 
 Java'da bir sınıfı oluştururken, genellikle bir yapıcı(constructor) kullanılır. Ancak, bazı durumlarda static factory metodların kullanımı önemli avantajlar sağlayabilir.
