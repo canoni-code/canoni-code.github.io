@@ -55,10 +55,11 @@
       "pagination",
       "post",
       "post-content",
-      "post-content__read-more",
       "post-header",
       "post-heading__anchor",
       "post-meta",
+      "post-tag",
+      "post-tags",
       "search",
       "search__suggestions--hidden",
       "theme__toggle"
@@ -66,7 +67,6 @@
     "ids": [
       "avantajlar",
       "constructor-kullanımı",
-      "javada-static-factory-metodları-ve-constructorlar-arasındaki-fark",
       "menu",
       "prism-dark",
       "prism-light",
