@@ -1,0 +1,64 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Canonicode'
+[markup]
+
+
+[build]
+
+_merge = "deep"
+
+[module]
+[[module.imports]]
+path = "github.com/schnerring/hugo-theme-gruvbox"
+[[module.imports]]
+path = "github.com/schnerring/hugo-mod-json-resume"
+[[module.imports.mounts]]
+source = "data"
+target = "data"
+[[module.imports.mounts]]
+source = "layouts"
+target = "layouts"
+[[module.imports.mounts]]
+source = "assets/css/json-resume.css"
+target = "assets/css/critical/44-json-resume.css"
+[[module.mounts]]
+# required by hugo-mod-json-resume
+source = "node_modules/simple-icons/icons"
+target = "assets/simple-icons"
+[[module.mounts]]
+source = "assets"
+target = "assets"
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+[[module.mounts]]
+source = "static"
+target = "static"
+[[module.mounts]]
+source = "node_modules/prismjs"
+target = "assets/prismjs"
+[[module.mounts]]
+source = "node_modules/prism-themes/themes"
+target = "assets/prism-themes"
+[[module.mounts]]
+source = "node_modules/typeface-fira-code/files"
+target = "static/fonts"
+[[module.mounts]]
+source = "node_modules/typeface-roboto-slab/files"
+target = "static/fonts"
+[[module.mounts]]
+source = "node_modules/@tabler/icons/icons"
+target = "assets/tabler-icons"
+
+[Params]
+[Params.Logo]
+Text = "edu.canonicode"
+
+[[menu.main]]
+name = "Muhendisler"
+url = "/muhendisler"
+
+[[menu.main]]
+name = "Dersler"
+url = "/dersler"
