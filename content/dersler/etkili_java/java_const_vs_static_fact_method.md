@@ -7,12 +7,21 @@ tags = ['Java', 'constructor', 'static factory methods']
 title = "Java'da Static Factory Metodları ve Constructor'lar Arasındaki Fark"
 +++
 
-Java'da bir sınıfı oluştururken, genellikle bir yapıcı(constructor) kullanılır. Ancak, bazı durumlarda static factory metodların kullanımı önemli avantajlar sağlayabilir.
+### Yapıcı (Constructor) Nedir?
+
+Yapıcı(constructor), bir sınıfın nesnesinin oluşturulduğu anı temsil eden özel bir metoddur. Bu metodun adı sınıfın adıyla aynı olmak zorundadır ve nesne oluşturulurken çağrılır. Constructor, sınıfın özelliklerini başlatmak, nesnenin ilk durumunu belirlemek ve diğer başlangıç ayarlarını yapmak için kullanılır. Her bir nesne için ayrı ayrı çalışır ve nesnenin oluşturulma sürecini yönetir.
+
+### Statik Fabrika Metodu(Static Factory Method) Nedir?
+
+Statik fabrika metodu, bir sınıfın bir nesnesini oluşturmak için kullanılan özel bir metoddur. Bu metot, genellikle sınıfın bir örneği oluşturulmadan çağrılabilir. Yani, bu metotla bir nesne oluşturulduğunda, normal bir constructor çağrılmaz. Statik fabrika metotları, nesne oluşturma sürecini kontrol etmek, özel durumları ele almak, önbellekleme yapmak veya nesne havuzları oluşturmak gibi durumlar için kullanılabilir.
+
+Java'da bir sınıfı oluştururken, genellikle bir yapıcı(constructor) kullanılır. Ancak, bazı durumlarda statik fabrika metotların kullanımı önemli avantajlar sağlayabilir.
 
 ### Constructor Kullanımı
 
 Aşağıdaki örnekte, `Person` sınıfı için bir yapıcı(constructor) kullanılmıştır. Ancak, constructor'lar bazı durumlarda yetersiz veya esnek olmayabilir.
 
+```Java
 public class Person {
     private String name;
     private int age;
@@ -22,10 +31,12 @@ public Person(String name, int age) {
     this.age = age;
     }
 }
-### Statik Fabrika Metodları (Static Factory Methods)
+```
+### Statik Fabrika Metotları (Static Factory Methods)
 
-Aşağıdaki örnekte, `createPerson` adlı bir static factory metodu kullanılmıştır. Bu örnek, yukarıdaki Person sınıfının bir static factory metod ile nasıl uygulanabileceğini gösteriyor.
+Aşağıdaki örnekte, `createPerson` adlı bir static factory metodu kullanılmıştır. Bu örnek, yukarıdaki Person sınıfının bir statik fabrika metodu ile nasıl uygulanabileceğini gösteriyor.
 
+```Java
 public class Person {
     private String name;
     private int age;
@@ -39,17 +50,21 @@ public class Person {
         return new Person(name, age);
     } 
 }
-Static factory method kullanımının avantajlarına yukarıdaki örnekleri baz alarak değinelim.
+```
+
+Statik fabrika metotlarının kullanımının avantajlarına yukarıdaki örnekleri baz alarak değinelim.
 
 #### Avantajlar
 
-1. **İsimlendirme Özgürlüğü**: Bir yapıcı(constructor) tanımlandığında ilgili sınıf ile aynı ismi taşımak zorundadır ancak static factory metodu tanımlarken adını dilediğiniz gibi seçebilirsiniz. Bu, kullanımı daha açık ve anlaşılır kılabilir.
+1. **İsimlendirme Özgürlüğü**: Bir yapıcı(constructor) tanımlandığında ilgili sınıf ile aynı ismi taşımak zorundadır ancak statik fabrika metotlarını tanımlarken adını dilediğiniz gibi seçebilirsiniz. Bu, kullanımı daha açık ve anlaşılır kılabilir.
 
-   ``Person john = Person.createPerson("John", 30);``
+```Java
+Person john = Person.createPerson("John", 30);
+```
 2. **Önbellekleme (Caching)**: Her çağrıldığında yeni bir nesne oluşturmak yerine, aynı parametrelerle çağrıldığında önceden oluşturulmuş bir nesneyi döndürebilir ve bu sayede önbellekleme yapabilirsiniz.
 
 ```Java
-   private static final Map<String, Person> personCache = new HashMap<>();``
+   private static final Map<String, Person> personCache = new HashMap<>();
 
    public static Person createPerson(String name, int age) {
        String key = name + "_" + age;
@@ -70,7 +85,7 @@ Static factory method kullanımının avantajlarına yukarıdaki örnekleri baz 
           return new Student(name, age, studentId);
       }
 ```
-4. **Eksik Parametre Kontrolü**: Constructor ile nesne oluştururken eksik parametreleri kontrol etmek zordur. Ancak static factory metodu bu durumu daha iyi ele alabilir.
+4. **Eksik Parametre Kontrolü**: Constructor ile nesne oluştururken eksik parametreleri kontrol etmek nispeten zordur. Ancak statik fabrika metodu bu durumu daha iyi ele alabilir.
 ```Java
      public static Person createPersonWithOptionalParams(String name, int age, String address) {
          Person person = new Person(name, age);
@@ -80,7 +95,7 @@ Static factory method kullanımının avantajlarına yukarıdaki örnekleri baz 
          return person;
      }
 ```
-5. **Singleton Desenini Uygulama**: Static factory metodunu kullanarak singleton desenini kolayca uygulayabilirsiniz.
+5. **Singleton Desenini Uygulama**: Statik fabrika metodunu kullanarak singleton desenini kolayca uygulayabilirsiniz.
 ```Java
    private static final Person INSTANCE = new Person("Default", 0);
     
